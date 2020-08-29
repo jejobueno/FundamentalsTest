@@ -50,12 +50,15 @@ public class Omnivore extends Animal{
 
     @Override
     public String toString() {
+        StringBuilder diet = new StringBuilder();
+        for (Plant plant : plantDiet) diet.append(plant.getName() + ", ");
+
         return "Omnivore{" + "\n" +
                 "Name: " + getName() + "\n" +
                 "Weight: " + getWeight() + "m\n" +
                 "Height: " + getHeight()+ "m\n" +
                 "Length: " + getLength() + "m\n" +
-                "PlantDiet: " + plantDiet + "\n" +
+                "PlantDiet: " + diet + "\n" +
                 "MaxFoodSize: " + maxFoodSize + "\n" +
                 '}';
     }

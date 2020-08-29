@@ -4,7 +4,7 @@ import be.intecbrussel.the_notebook.entities.animal_entities.Animal;
 import be.intecbrussel.the_notebook.entities.animal_entities.Carnivore;
 import be.intecbrussel.the_notebook.entities.animal_entities.Herbivore;
 import be.intecbrussel.the_notebook.entities.animal_entities.Omnivore;
-import be.intecbrussel.the_notebook.entities.plant_entities.Plant;
+import be.intecbrussel.the_notebook.entities.plant_entities.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -34,11 +34,11 @@ public class ForestNoteBook {
     }
 
     public int getPlantCount() {
-        return plantCount = animals.size();
+        return plantCount;
     }
 
     public int getAnimalCount() {
-        return AnimalCount = animals.size();
+        return AnimalCount;
     }
 
     public void setCarnivores(List<Carnivore> carnivores) {
@@ -54,16 +54,28 @@ public class ForestNoteBook {
     }
 
     public void addAnimal(Animal animal){
-        if (!animals.equals(animal))
+        if (animal != null && !animals.contains(animal)) {
             animals.add(animal);
-        else
+            clasifyAnimal(animal);
+            AnimalCount++;
+        } else
             System.out.println("This animal already exist in the list!");
     }
 
-    public void addPlant(Plant plant){
-        Comparator comparable = new Comparator<>();
-        plants.add(plant);
+    public void clasifyAnimal(Animal animal){
+        if (animal instanceof Carnivore) carnivores.add((Carnivore) animal);
+        if (animal instanceof Herbivore) herbivores.add((Herbivore) animal);
+        if (animal instanceof Omnivore) omnivores.add((Omnivore) animal);
     }
+
+    public void addPlant(Plant plant){
+        if (plant != null && !plants.contains(plant)) {
+            plants.add(plant);
+            plantCount++;
+        } else
+            System.out.println("This animal already exist in the list!");
+    }
+
 
     public void printNotebook(){
         System.out.println("************************* Animals: ******************************\n");
@@ -73,27 +85,19 @@ public class ForestNoteBook {
     }
 
     public void sortAllAnimalsByName(){
-        Comparator<Animal> byName =
-                Comparator.comparing(Animal::getName);
-        animals.sort(byName);
+        animals.sort(Comparator.comparing(Animal::getName));
     }
 
     public void sortAllPlantsByName(){
-        Comparator<Plant> byName =
-                Comparator.comparing(Plant::getName);
-        plants.sort(byName);
+        plants.sort(Comparator.comparing(Plant::getName));
     }
 
     public void sortAllPlantsByHeight(){
-        Comparator<Plant> byHeight =
-                Comparator.comparing(Plant::getHeight);
-        plants.sort(byHeight);
+        plants.sort(Comparator.comparing(Plant::getHeight));
     }
 
     public void sortAllAnimalsByHeight() {
-        Comparator<Animal> byHeight =
-                Comparator.comparing(Animal::getHeight);
-        animals.sort(byHeight);
+        animals.sort(Comparator.comparing(Animal::getHeight));
     }
 
     public void printHeavyAnimalsCount(){

@@ -46,7 +46,4 @@ public class Animal {
         this.length = length;
     }
 
-    public boolean equals(Object o) {
-        return (o instanceof Animal) && (((Animal) o).name).equals(this.getName());
-    }
 }

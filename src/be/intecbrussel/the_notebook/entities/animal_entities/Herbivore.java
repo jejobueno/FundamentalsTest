@@ -37,12 +37,15 @@ public class Herbivore extends Animal{
 
     @Override
     public String toString() {
+        StringBuilder diet = new StringBuilder();
+        for (Plant plant : plantDiet) diet.append(plant.getName() + ", ");
+
         return "Herbivore{" + "\n" +
                 "Name: " + getName() + "\n" +
                 "Weight: " + getWeight() + "m\n" +
                 "Height: " + getHeight()+ "m\n" +
                 "Length: " + getLength() + "m\n" +
-                "plantDiet=" + plantDiet + "\n" +
+                "plantDiet=" + diet + "\n" +
                 '}';
     }
 }

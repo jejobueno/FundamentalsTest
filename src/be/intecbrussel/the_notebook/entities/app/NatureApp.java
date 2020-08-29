@@ -19,7 +19,7 @@ public class NatureApp {
         Weed aloeVera = new Weed("Aloe vera", 2.3);
         Bush bunnyEarCactus = new Bush("Bunny Ear Cactus",LeafType.NEEDLE);
         Bush coralCactus = new Bush("Coral Cactus",LeafType.SPEAR);
-        Three pine = new Three("Pine", LeafType.SPEAR);
+        Tree pine = new Tree("Pine", LeafType.SPEAR);
         Flower amaryllis = new Flower("Amaryllis", 6);
 
         Carnivore leon = new Carnivore("Leon", 130, 1.20, 2.00);
@@ -27,18 +27,19 @@ public class NatureApp {
         Carnivore hyena = new Carnivore("Hyena", 44, 7.0,9.5);
         Carnivore eagle = new Carnivore("Eagle",9,7,1);
         Omnivore bear = new Omnivore("Bear",250,1.80,1.40);
-        bear.addPlantToDiet(aloeVera);
         Omnivore raccoon = new Omnivore("Raccoon", 35,2.3,4);
+        Omnivore civet = new Omnivore("Civet",32,4,5.3);
+        Herbivore alpaca = new Herbivore("Alpaca", 48,8.1,2);
+        Herbivore panda = new Herbivore("Panda",7,6,1.2);
+
+        bear.addPlantToDiet(aloeVera);
         raccoon.addPlantToDiet(aloeVera);
         raccoon.addPlantToDiet(amaryllis);
         raccoon.addPlantToDiet(pine);
         raccoon.addPlantToDiet(pine);
-        Omnivore civet = new Omnivore("Civet",32,4,5.3);
         civet.addPlantToDiet(amaryllis);
-        Herbivore alpaca = new Herbivore("Alpaca", 48,8.1,2);
         alpaca.addPlantToDiet(amaryllis);
         alpaca.addPlantToDiet(aloeVera);
-        Herbivore panda = new Herbivore("Panda",7,6,1.2);
         panda.addPlantToDiet(aloeVera);
 
         mySpecimensNoteBook.addPlant(aloeVera);
